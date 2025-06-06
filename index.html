@@ -609,12 +609,15 @@ fi
 echo "Log analysis completed."
 </code></pre>
 
-  <h3>How to use:</h3>
+  <h3>Explanation</h3>
   <ul>
-    <li>Save this script as <code>analyze_logs.sh</code> inside your repository.</li>
-    <li>Make it executable with <code>chmod +x analyze_logs.sh</code>.</li>
-    <li>Run it from the command line with <code>./analyze_logs.sh</code>.</li>
-    <li>Make sure the <code>simulation_logs/</code> directory is at the same level or adjust the script paths.</li>
+    <li><strong>Searches for log files:</strong> Uses <code>find</code> to locate all <code>.log</code> files recursively.</li>
+    <li><strong>Handles missing logs:</strong> If no logs are found, it prints a message and exits.</li>
+    <li><strong>Counts logs:</strong> Displays the number of log files found.</li>
+    <li><strong>Scans for issues:</strong> Iterates through each log file to count <code>ERROR</code> and <code>WARNING</code> messages.</li>
+    <li><strong>Reports counts:</strong> Prints how many files contain errors or warnings.</li>
+    <li><strong>Collects all errors:</strong> Extracts all <code>ERROR</code> lines into a single file called <code>all_errors.txt</code>.</li>
+    <li><strong>Highlights top issues:</strong> If there are errors, it displays the top 5 most frequent error messages.</li>
   </ul>
 
   <p>This script provides informative messages, counts files, extracts errors, and summarizes warnings as requested.</p>
