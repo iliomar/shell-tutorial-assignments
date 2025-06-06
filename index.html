@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shell Tutorial Assignments</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9; color: #333;
+  }
+  header {
+    background: #002855;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  #container {
+    display: flex;
+    min-height: 90vh;
+  }
+  nav {
+    width: 250px;
+    background: #034078;
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  nav h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    border-bottom: 1px solid #1170aa;
+    padding-bottom: 0.5rem;
+  }
+  nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  nav ul li {
+    margin: 0.7rem 0;
+  }
+  nav ul li a {
+    color: #b3d4fc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #ffe156;
+  }
+  main {
+    flex: 1;
+    padding: 2rem 3rem;
+    background: white;
+    box-shadow: 0 0 10px #ddd;
+    max-width: 900px;
+    margin: 1rem auto;
+  }
+  h1, h2, h3 {
+    color: #002855;
+  }
+  pre {
+    background: #f4f4f4;
+    border-left: 4px solid #034078;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  code {
+    font-family: 'Source Code Pro', monospace;
+    background: #eaeaea;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    #container {
+      flex-direction: column;
+    }
+    nav {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    main {
+      max-width: 100%;
+      margin: 0;
+      box-shadow: none;
+      padding: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>Shell Tutorial Assignments</header>
+
+<div id="container">
+  <nav>
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#introduction" class="active">Introduction</a></li>
+      <li><a href="#setup">Setup</a></li>
+      <li><a href="#assignments">Assignments</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="introduction">
+      <h1>Welcome to the Shell Tutorial Assignments</h1>
+      <p>This tutorial repository is designed for students interested in learning Bash shell scripting through real-world examples inspired by astrophysical particle physics and string theory data.</p>
+      <p>You will gain practical experience in navigating the filesystem, manipulating text, scripting logic, and processing scientific datasets.</p>
+    </section>
+
+    <section id="setup">
+      <h2>Setup Instructions</h2>
+      <p>Before starting the assignments, please prepare your environment:</p>
+      <pre><code>chmod +x setup.sh
+./setup.sh
+</code></pre>
+      <p>This script will check your environment and make solution scripts executable.</p>
+    </section>
+
+    <section id="assignments">
+      <h2>Assignments</h2>
+      <p>Assignments are located in the <code>problems/</code> folder. Each assignment is designed to challenge a specific Bash concept, such as loops, conditionals, or text processing tools.</p>
+      <ul>
+        <li><strong>Assignment 1:</strong> Exploring cosmic ray datasets</li>
+        <li><strong>Assignment 2:</strong> Filtering dark matter simulation logs</li>
+        <li><strong>Assignment 3:</strong> Parsing string theory event files</li>
+      </ul>
+      <p>Clone the repository and try to solve each problem using Bash commands and scripts.</p>
+    </section>
+
+    <section id="solutions">
+      <h2>Solutions</h2>
+      <p>Example solution scripts are in the <code>solutions/</code> folder. Use them as a reference after attempting each assignment on your own.</p>
+      <p>To run a solution script, use:</p>
+      <pre><code>./solutions/assignment1_solution.sh
+</code></pre>
+    </section>
+
+    <section id="resources">
+      <h2>Additional Resources</h2>
+      <ul>
+        <li><a href="https://swcarpentry.github.io/shell-novice/" target="_blank" rel="noopener">Software Carpentry Shell Novice Tutorial</a></li>
+        <li><a href="https://github.com/iliomar/shell-tutorial-assignments" target="_blank" rel="noopener">GitHub Repository</a></li>
+        <li><a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank" rel="noopener">Bash Reference Manual</a></li>
+        <li><a href="https://appletree.or.kr/quick_reference_cards/Unix-Linux/Linux%20Command%20Line%20Cheat%20Sheet.pdf" target="_blank" rel="noopener">Cheat Sheet</a></li>
+        <li><a href="https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh" target="_blank" rel="noopener"></a>Cheat Sheet</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you have any questions or want to contribute, please reach out to Iliomar Rodriguez Ramos.</p>
+      <p>Email: <a href="mailto:iliomar.rodriguez@upr.edu">iliomar.rodriguez@upr.edu</a></p>
+    </section>
+  </main>
+</div>
+
+<script>
+  // Highlight the active menu item based on scroll position
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
