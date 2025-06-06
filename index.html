@@ -144,15 +144,111 @@
     </section>
 
     <section id="assignments">
-      <h2>Assignments</h2>
-      <p>Assignments are located in the <code>problems/</code> folder. Each assignment is designed to challenge a specific Bash concept, such as loops, conditionals, or text processing tools.</p>
+      <h2>Problems</h2>
+      <p>Problems are located in the <code>problems/</code> folder. Each problem is designed to challenge a specific Bash concept, such as loops, conditionals, or text processing tools.</p>
       <ul>
-        <li><strong>Assignment 1:</strong> Exploring cosmic ray datasets</li>
-        <li><strong>Assignment 2:</strong> Filtering dark matter simulation logs</li>
-        <li><strong>Assignment 3:</strong> Parsing string theory event files</li>
+        <li><strong>Problem 1:</strong> Exploring cosmic ray datasets</li>
+        <li><strong>Problem 2:</strong> Filtering dark matter simulation logs</li>
+        <li><strong>Problem 3:</strong> Parsing string theory event files</li>
       </ul>
       <p>Clone the repository and try to solve each problem using Bash commands and scripts.</p>
     </section>
+
+    <section id="assignments" style="padding: 2em;">
+  <h2>Exploring cosmic ray datasets</h2>
+
+  <!-- Assignment 1 -->
+  <article style="margin-bottom: 3em;">
+    <h3>🔭 Problem 1: Exploring Cosmic Ray Flux Data</h3>
+    <p>In this assignment, you'll analyze cosmic ray flux data using shell tools.</p>
+
+    <h4>📁 Dataset</h4>
+    <p><code>data/cosmic_flux_data.txt</code> (tab-separated):</p>
+    <pre>
+Energy(GeV)  Flux(particles/m²/s/sr/GeV)  Particle
+    </pre>
+
+    <h4>🎯 Tasks</h4>
+    <ul>
+      <li>Display the number of unique particle types.</li>
+      <li>List the top 5 highest-energy events.</li>
+      <li>Extract only the flux values for protons and compute the average.</li>
+      <li>Create a new file with only the entries for electrons.</li>
+    </ul>
+
+    <h4>💡 Hints</h4>
+    <ul>
+      <li>Use <code>cut</code>, <code>sort</code>, <code>uniq</code>, <code>grep</code>, <code>awk</code>, <code>head</code>, and <code>tail</code>.</li>
+      <li>Skip the header row when appropriate.</li>
+    </ul>
+
+    <h4>✅ Deliverables</h4>
+    <ul>
+      <li><code>assignment1_solution.sh</code> that performs all tasks</li>
+    </ul>
+  </article>
+
+  <!-- Assignment 2 -->
+  <article style="margin-bottom: 3em;">
+    <h3>🧬 Problem 2: Simulated Dark Matter Signals</h3>
+    <p>Use Bash to search for potential dark matter candidates from a noisy dataset.</p>
+
+    <h4>📁 Dataset</h4>
+    <p><code>data/dark_matter_candidates.txt</code> (space-separated):</p>
+    <pre>
+EventID  Mass(GeV)  CrossSection(pb)  SignalToNoise
+    </pre>
+
+    <h4>🎯 Tasks</h4>
+    <ul>
+      <li>Count the total number of events with <code>SignalToNoise &gt; 5</code>.</li>
+      <li>Find the top 3 events with highest signal-to-noise.</li>
+      <li>Filter all events with <code>Mass &gt; 1000</code> GeV and save to a new file.</li>
+    </ul>
+
+    <h4>💡 Hints</h4>
+    <ul>
+      <li>Use <code>awk</code>, <code>sort</code>, <code>head</code>, <code>wc</code>, and <code>grep</code>.</li>
+    </ul>
+
+    <h4>✅ Deliverables</h4>
+    <ul>
+      <li><code>assignment2_solution.sh</code></li>
+      <li>Optional output file for filtered results</li>
+    </ul>
+  </article>
+
+  <!-- Assignment 3 -->
+  <article>
+    <h3>Problem 3: String Theory State Transitions</h3>
+    <p>Analyze synthetic string theory transition data using shell commands.</p>
+
+    <h4>📁 Dataset</h4>
+    <p><code>data/string_states.csv</code> (comma-separated):</p>
+    <pre>
+StateID,EnergyLevel,StringType,TransitionCount
+    </pre>
+
+    <h4>🎯 Tasks</h4>
+    <ul>
+      <li>List all unique string types and count how many of each exist.</li>
+      <li>Find the average energy level for "Type-A" strings.</li>
+      <li>Create a sorted file of all states with more than 20 transitions.</li>
+    </ul>
+
+    <h4>💡 Hints</h4>
+    <ul>
+      <li>Use <code>cut</code>, <code>sort</code>, <code>uniq -c</code>, <code>awk</code>, and <code>grep</code>.</li>
+    </ul>
+
+    <h4>✅ Deliverables</h4>
+    <ul>
+      <li><code>assignment3_solution.sh</code></li>
+      <li><code>high_transition_states.csv</code></li>
+    </ul>
+  </article>
+</section>
+
 
     <section id="solutions">
       <h2>Solutions</h2>
