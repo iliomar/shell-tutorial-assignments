@@ -154,99 +154,302 @@
       <p>Clone the repository and try to solve each problem using Bash commands and scripts.</p>
     </section>
 
-    <section id="assignments" style="padding: 2em;">
-  <h2>Exploring cosmic ray datasets</h2>
+   <section id="assignment1" style="margin-bottom: 4em;">
+  <h2>🔭 Assignment 1: Exploring Cosmic Ray Flux Data</h2>
+  <p>Welcome to your first assignment! We'll apply the basic shell skills you've learned to explore a dataset inspired by astrophysical particle physics. The data contains simulated measurements of cosmic ray particle fluxes detected by an instrument in space.</p>
 
-  <!-- Assignment 1 -->
-  <article style="margin-bottom: 3em;">
-    <h3>🔭 Problem 1: Exploring Cosmic Ray Flux Data</h3>
-    <p>In this assignment, you'll analyze cosmic ray flux data using shell tools.</p>
+  <h3>📘 Topics Covered</h3>
+  <ul>
+    <li>Navigating Files and Directories</li>
+    <li>Working with Files and Directories</li>
+  </ul>
 
-    <h4>📁 Dataset</h4>
-    <p><code>data/cosmic_flux_data.txt</code> (tab-separated):</p>
-    <pre>
-Energy(GeV)  Flux(particles/m²/s/sr/GeV)  Particle
-    </pre>
+  <h3>📁 Dataset</h3>
+  <p>The file is located at: <code>data/cosmic_flux_data.txt</code></p>
+  <pre><code>Energy(GeV)	Flux(particles/m²/s/sr/GeV)	Particle
+12.5	4.2e-3	Proton
+55.3	1.1e-3	Electron
+29.9	3.7e-3	Proton
+9.8	5.5e-3	Muon
+...</code></pre>
 
-    <h4>🎯 Tasks</h4>
-    <ul>
-      <li>Display the number of unique particle types.</li>
-      <li>List the top 5 highest-energy events.</li>
-      <li>Extract only the flux values for protons and compute the average.</li>
-      <li>Create a new file with only the entries for electrons.</li>
-    </ul>
+  <p><strong>Each row</strong> corresponds to a cosmic ray detection event. Your job is to navigate the file system and extract meaningful scientific information using shell commands.</p>
 
-    <h4>💡 Hints</h4>
-    <ul>
-      <li>Use <code>cut</code>, <code>sort</code>, <code>uniq</code>, <code>grep</code>, <code>awk</code>, <code>head</code>, and <code>tail</code>.</li>
-      <li>Skip the header row when appropriate.</li>
-    </ul>
+  <h3>🧠 Problem Statement</h3>
+  <ol>
+    <li><strong>Navigate</strong> to the <code>data/</code> directory using <code>cd</code>.</li>
+    <li>Use <code>ls</code> to verify that the file <code>cosmic_flux_data.txt</code> exists.</li>
+    <li>Use <code>cat</code> or <code>less</code> to inspect the file content. How many columns are there? What are their headers?</li>
+    <li>Return to the parent directory and create a new folder called <code>results/</code>.</li>
+    <li>Copy the dataset into the <code>results/</code> folder using <code>cp</code>.</li>
+    <li>Move into the <code>results/</code> folder and rename the file to <code>cosmic_flux_backup.txt</code>.</li>
+    <li>Count how many lines (including the header) are in the file using <code>wc</code>.</li>
+    <li>Now return to the repo root using <code>cd ../..</code> and continue with the next problem once finished.</li>
+  </ol>
 
-    <h4>✅ Deliverables</h4>
-    <ul>
-      <li><code>assignment1_solution.sh</code> that performs all tasks</li>
-    </ul>
-  </article>
+  <h3>📌 Notes</h3>
+  <ul>
+    <li>Use <code>pwd</code> to check where you are at any moment.</li>
+    <li>Use <code>mkdir</code>, <code>cp</code>, and <code>mv</code> with care — these commands change your file system!</li>
+    <li>Remember: you can always use <code>man &lt;command&gt;</code> to learn more.</li>
+  </ul>
 
-  <!-- Assignment 2 -->
-  <article style="margin-bottom: 3em;">
-    <h3>🧬 Problem 2: Simulated Dark Matter Signals</h3>
-    <p>Use Bash to search for potential dark matter candidates from a noisy dataset.</p>
+  <h3>✅ Deliverable</h3>
+  <p>Create a Bash script called <code>assignment1_solution.sh</code> that performs all the steps above, using relative paths.</p>
+</section>
 
-    <h4>📁 Dataset</h4>
-    <p><code>data/dark_matter_candidates.txt</code> (space-separated):</p>
-    <pre>
-EventID  Mass(GeV)  CrossSection(pb)  SignalToNoise
-    </pre>
+<section id="assignment2" style="margin-bottom: 4em;">
+  <h2>🔭 Assignment 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
+  <p>Building on your first assignment, now you will analyze the cosmic ray flux data more deeply using pipes, filters, and loops in Bash.</p>
 
-    <h4>🎯 Tasks</h4>
-    <ul>
-      <li>Count the total number of events with <code>SignalToNoise &gt; 5</code>.</li>
-      <li>Find the top 3 events with highest signal-to-noise.</li>
-      <li>Filter all events with <code>Mass &gt; 1000</code> GeV and save to a new file.</li>
-    </ul>
+  <h3>📘 Topics Covered</h3>
+  <ul>
+    <li>Pipes and Filters (<code>|</code>, <code>grep</code>, <code>awk</code>, <code>cut</code>, <code>sort</code>, <code>uniq</code>)</li>
+    <li>Loops (<code>for</code>, <code>while</code>)</li>
+    <li>Basic File Navigation and Manipulation</li>
+  </ul>
 
-    <h4>💡 Hints</h4>
-    <ul>
-      <li>Use <code>awk</code>, <code>sort</code>, <code>head</code>, <code>wc</code>, and <code>grep</code>.</li>
-    </ul>
+  <h3>📁 Dataset</h3>
+  <p>Recall the file <code>results/cosmic_flux_backup.txt</code> from Assignment 1. This file contains the cosmic ray flux measurements.</p>
 
-    <h4>✅ Deliverables</h4>
-    <ul>
-      <li><code>assignment2_solution.sh</code></li>
-      <li>Optional output file for filtered results</li>
-    </ul>
-  </article>
+  <h3>🧠 Problem Statement</h3>
+  <ol>
+    <li>Navigate to the <code>results/</code> directory.</li>
+    <li>Using pipes and filters, find out how many unique particle types are present in the dataset.</li>
+    <li>Extract and display the top 5 events with the highest energy values.</li>
+    <li>Use a <code>for</code> or <code>while</code> loop to calculate and print the average flux for each particle type found in the dataset.</li>
+    <li>Create a new file called <code>high_energy_protons.txt</code> that contains only rows for protons with energy greater than 20 GeV.</li>
+  </ol>
 
-  <!-- Assignment 3 -->
-  <article>
-    <h3>Problem 3: String Theory State Transitions</h3>
-    <p>Analyze synthetic string theory transition data using shell commands.</p>
+  <h3>📌 Notes</h3>
+  <ul>
+    <li>Remember the dataset has a header row — skip it when processing numeric data.</li>
+    <li>Use commands like <code>grep</code>, <code>awk</code>, <code>sort</code>, <code>uniq</code>, <code>cut</code>, and <code>head</code>.</li>
+    <li>Loops are useful to automate repeated tasks for each particle type.</li>
+    <li>Print meaningful messages for clarity when running your script.</li>
+  </ul>
 
-    <h4>📁 Dataset</h4>
-    <p><code>data/string_states.csv</code> (comma-separated):</p>
-    <pre>
-StateID,EnergyLevel,StringType,TransitionCount
-    </pre>
+  <h3>✅ Deliverable</h3>
+  <p>Create a Bash script called <code>assignment2_solution.sh</code> that performs all the steps and saves the output files inside the <code>results/</code> directory.</p>
+</section>
 
-    <h4>🎯 Tasks</h4>
-    <ul>
-      <li>List all unique string types and count how many of each exist.</li>
-      <li>Find the average energy level for "Type-A" strings.</li>
-      <li>Create a sorted file of all states with more than 20 transitions.</li>
-    </ul>
 
-    <h4>💡 Hints</h4>
-    <ul>
-      <li>Use <code>cut</code>, <code>sort</code>, <code>uniq -c</code>, <code>awk</code>, and <code>grep</code>.</li>
-    </ul>
+<section id="assignment3" style="margin-bottom: 4em;">
+  <h2>🔭 Assignment 3: Analyze Astrophysics Simulation Logs with Shell Scripts</h2>
+  <p>You have a folder <code>simulation_logs/</code> containing many <code>.log</code> files from astrophysics simulations. Each file may have lines with <code>ERROR</code> or <code>WARNING</code>.</p>
 
-    <h4>✅ Deliverables</h4>
-    <ul>
-      <li><code>assignment3_solution.sh</code></li>
-      <li><code>high_transition_states.csv</code></li>
-    </ul>
-  </article>
+  <h3>🧩 Tasks</h3>
+  <ol>
+    <li>Use <code>find</code> to locate all <code>.log</code> files inside <code>simulation_logs/</code>.</li>
+    <li>Count and print the total number of log files found.</li>
+    <li>For each file that contains <code>ERROR</code>, print the filename and the number of error lines.</li>
+    <li>Count how many files contain <code>ERROR</code> and how many contain <code>WARNING</code>.</li>
+    <li>Extract all <code>ERROR</code> lines from all files into <code>all_errors.txt</code>.</li>
+    <li><em>(Optional)</em> Print the top 5 most common error messages from <code>all_errors.txt</code>.</li>
+  </ol>
+
+  <h3>📌 Notes</h3>
+  <ul>
+    <li>Write a shell script <code>analyze_logs.sh</code> to do the above.</li>
+    <li>Include clear messages describing each step.</li>
+    <li>Use loops, <code>grep</code>, <code>find</code>, <code>wc</code>, <code>sort</code>, and <code>uniq</code>.</li>
+  </ul>
+
+  <h3>✅ Deliverable</h3>
+  <p>Submit the executable shell script <code>analyze_logs.sh</code> that performs all tasks.</p>
+</section>
+
+
+
+
+<section id="solution1" style="margin-bottom: 4em;">
+  <h2>🛠 Solution to Assignment 1: Exploring Cosmic Ray Flux Data</h2>
+  <p>Below is a step-by-step Bash script explanation that performs the tasks requested.</p>
+
+  <pre><code class="bash">
+#!/bin/bash
+
+# Step 1: Navigate to the data directory
+echo "Navigating to data/ directory..."
+cd data || { echo "data/ directory not found!"; exit 1; }
+
+# Step 2: List files to confirm dataset exists
+echo "Listing files in data/:"
+ls
+
+# Step 3: Inspect the file content (show first 5 lines)
+echo "Displaying first 5 lines of cosmic_flux_data.txt:"
+head -n 5 cosmic_flux_data.txt
+
+# Step 4: Go back to parent directory
+echo "Returning to parent directory..."
+cd ..
+
+# Step 5: Create results/ directory if it does not exist
+echo "Creating results/ directory..."
+mkdir -p results
+
+# Step 6: Copy dataset to results/
+echo "Copying dataset to results/ folder..."
+cp data/cosmic_flux_data.txt results/
+
+# Step 7: Move into results/ and rename the file
+cd results || { echo "results/ directory not found!"; exit 1; }
+echo "Renaming cosmic_flux_data.txt to cosmic_flux_backup.txt..."
+mv cosmic_flux_data.txt cosmic_flux_backup.txt
+
+# Step 8: Count the lines including header
+echo "Counting lines in cosmic_flux_backup.txt:"
+wc -l cosmic_flux_backup.txt
+
+# Step 9: Return to repo root (assuming started from repo root)
+echo "Returning to repo root directory..."
+cd ../..
+
+echo "Assignment 1 tasks complete."
+  </code></pre>
+
+  <h3>Explanation:</h3>
+  <ul>
+    <li><code>cd data</code>: changes directory to <code>data/</code> folder containing the dataset.</li>
+    <li><code>ls</code>: lists files to confirm the dataset file is present.</li>
+    <li><code>head -n 5</code>: shows the first 5 lines so we can inspect headers and sample data.</li>
+    <li><code>mkdir -p results</code>: creates a new folder <code>results/</code>, <code>-p</code> avoids errors if it exists.</li>
+    <li><code>cp</code>: copies the file to the new directory.</li>
+    <li><code>mv</code>: renames the copied file inside <code>results/</code>.</li>
+    <li><code>wc -l</code>: counts lines to verify file content length.</li>
+    <li><code>cd ../..</code>: moves back to the repository root.</li>
+  </ul>
+
+  <p>This script uses relative paths to ensure portability and is designed for easy understanding and modification.</p>
+</section>
+
+<section id="solution2" style="margin-bottom: 4em;">
+  <h2>🛠 Solution to Assignment 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
+  <p>This script performs all the tasks requested using pipes, filters, loops, and basic shell scripting.</p>
+
+  <pre><code class="bash">
+#!/bin/bash
+
+# Navigate to results directory
+echo "Step 1: Navigate to results/ directory..."
+cd results || { echo "results/ directory not found!"; exit 1; }
+
+# Step 2: Find number of unique particle types
+echo "Step 2: Counting unique particle types..."
+unique_particles=$(tail -n +2 cosmic_flux_backup.txt | cut -f3 | sort | uniq | wc -l)
+echo "There are $unique_particles unique particle types."
+
+# Step 3: Extract top 5 highest-energy events
+echo "Step 3: Top 5 highest-energy events:"
+echo "(Energy(GeV), Flux, Particle)"
+tail -n +2 cosmic_flux_backup.txt | sort -k1,1nr | head -n 5
+
+# Step 4: Calculate average flux for each particle type using a loop
+echo "Step 4: Calculating average flux per particle type..."
+particles=$(tail -n +2 cosmic_flux_backup.txt | cut -f3 | sort | uniq)
+
+for particle in $particles; do
+  avg_flux=$(awk -v p="$particle" 'BEGIN{sum=0;count=0} $3==p {sum+=$2; count++} END{if(count>0) print sum/count; else print 0}' cosmic_flux_backup.txt)
+  echo "Average flux for $particle: $avg_flux"
+done
+
+# Step 5: Create file with high-energy protons (>20 GeV)
+echo "Step 5: Creating high_energy_protons.txt for protons with Energy > 20 GeV..."
+# Copy header first
+head -n 1 cosmic_flux_backup.txt > high_energy_protons.txt
+# Filter and append matching lines
+awk 'NR>1 && $3=="Proton" && $1>20 {print}' cosmic_flux_backup.txt >> high_energy_protons.txt
+
+echo "All tasks complete. File high_energy_protons.txt created in results/."
+
+# Return to repo root
+cd ../..
+  </code></pre>
+
+  <h3>Explanation:</h3>
+  <ul>
+    <li><code>tail -n +2</code>: skips header row for accurate data processing.</li>
+    <li><code>cut -f3</code>: extracts the third column (Particle type).</li>
+    <li><code>sort | uniq | wc -l</code>: counts unique particle types.</li>
+    <li><code>sort -k1,1nr</code>: sorts descending by the first column (Energy).</li>
+    <li><code>head -n 5</code>: picks the top 5 after sorting.</li>
+    <li>The <code>for</code> loop iterates over each particle type to calculate average flux using <code>awk</code>.</li>
+    <li><code>awk</code> filters protons with energy greater than 20 GeV to create a new file with header preserved.</li>
+  </ul>
+
+  <p>This script uses relative paths and includes safety checks to ensure directories exist.</p>
+</section>
+
+<section id="solution3" style="margin-bottom: 4em;">
+  <h2>✅ Solution for Assignment 3: Analyze Astrophysics Simulation Logs</h2>
+
+  <p>Below is a well-commented shell script <code>analyze_logs.sh</code> that accomplishes all tasks from the assignment:</p>
+
+  <pre><code class="bash">#!/bin/bash
+
+echo "Starting log analysis..."
+
+# Step 1: Find all .log files
+log_files=$(find simulation_logs/ -type f -name "*.log")
+
+if [[ -z "$log_files" ]]; then
+  echo "No log files found in simulation_logs/."
+  exit 1
+fi
+
+# Step 2: Count total log files found
+num_files=$(echo "$log_files" | wc -l)
+echo "Total log files found: $num_files"
+
+error_files=0
+warning_files=0
+
+# Step 3 & 4: Loop over files to find errors and warnings
+for file in $log_files; do
+  error_count=$(grep -c "ERROR" "$file")
+  warning_count=$(grep -c "WARNING" "$file")
+
+  if [[ $error_count -gt 0 ]]; then
+    echo "File '$file' contains $error_count ERROR lines."
+    ((error_files++))
+  fi
+  if [[ $warning_count -gt 0 ]]; then
+    ((warning_files++))
+  fi
+done
+
+echo "Number of files with ERROR: $error_files"
+echo "Number of files with WARNING: $warning_files"
+
+# Step 5: Extract all ERROR lines into all_errors.txt
+echo "Extracting all ERROR lines into all_errors.txt..."
+> all_errors.txt  # Empty the file first
+
+for file in $log_files; do
+  grep "ERROR" "$file" >> all_errors.txt
+done
+
+# Step 6 (Optional): Show top 5 most common error messages
+if [[ -s all_errors.txt ]]; then
+  echo "Top 5 most common error messages:"
+  cut -d':' -f2- all_errors.txt | sort | uniq -c | sort -nr | head -n 5
+else
+  echo "No ERROR lines found, skipping top error messages."
+fi
+
+echo "Log analysis completed."
+</code></pre>
+
+  <h3>How to use:</h3>
+  <ul>
+    <li>Save this script as <code>analyze_logs.sh</code> inside your repository.</li>
+    <li>Make it executable with <code>chmod +x analyze_logs.sh</code>.</li>
+    <li>Run it from the command line with <code>./analyze_logs.sh</code>.</li>
+    <li>Make sure the <code>simulation_logs/</code> directory is at the same level or adjust the script paths.</li>
+  </ul>
+
+  <p>This script provides informative messages, counts files, extracts errors, and summarizes warnings as requested.</p>
 </section>
 
 
