@@ -261,13 +261,22 @@ cd shell-tutorial-assignment</code></pre>
       <strong>Explore the repository structure:</strong><br>
       Here's a quick overview:
       <pre><code class="plaintext">shell-tutorial-assignments/
-├── data/              # Sample data files (e.g., cosmic rays)
-├── problems/          # Assignment problem statements
+├── Problems/          # Assignment problem statements
+    ├── Problem1
+        ├── data/              # Sample data files (e.g., cosmic rays) 
+            ├── cosmic_flux_data.txt     # data file
+        ├── cosmic_rays.md     # Problem statement
+    ├── Problem2
+        ├── processing_cosmic_rays.md     # Problem statement
+        ├── data/              # Sample data files
+            ├── cosmic_flux_data.txt     # data file 
+        ├── results/              # Sample data files
+            ├── cosmic_flux_backup.txt     # data file 
+    ├── Problem3
+        ├── sim_log.md     # Problem statement
+        ├── simulation_logs/              # log files
 ├── solutions/         # Your Bash solutions
-├── results/           # Output files (if needed)
-├── simulation_logs/   # Sample log files for Problem 3
-├── setup.sh           # Environment setup script
-└── index.html         # Web front page</code></pre>
+├── setup.sh           # Environment setup script if needed</code></pre>
     </li>
 
     <li>
