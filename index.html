@@ -3,112 +3,179 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Shell Tutorial Assignments</title>
+<title>Shell Tutorial Assignment</title>
 <style>
   /* Reset */
   * {
     box-sizing: border-box;
   }
   body {
-    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9f9f9; color: #333;
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0f0ff 0%, #f9f9f9 100%);
+    color: #333;
   }
   header {
-    background: #002855;
+    background: #003366;
     color: white;
     padding: 1rem 2rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  header img {
+    height: 40px;
+    width: auto;
+    border-radius: 6px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
   }
   #container {
     display: flex;
     min-height: 90vh;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
   }
   nav {
-    width: 250px;
-    background: #034078;
+    width: 280px;
+    background: #00509e;
     color: white;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
     position: sticky;
-    top: 0;
-    height: calc(100vh - 72px);
+    top: 1rem;
+    height: calc(100vh - 3rem);
     overflow-y: auto;
+    border-radius: 10px 0 0 10px;
+    box-shadow: inset -4px 0 6px -4px rgba(0,0,0,0.3);
   }
   nav h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 0;
-    border-bottom: 1px solid #1170aa;
-    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0099ff;
+    padding-bottom: 0.75rem;
   }
   nav ul {
     list-style: none;
     padding-left: 0;
+    margin-top: 1.5rem;
   }
   nav ul li {
-    margin: 0.7rem 0;
+    margin: 1rem 0;
   }
   nav ul li a {
-    color: #b3d4fc;
+    color: #cce6ff;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
   }
   nav ul li a:hover,
   nav ul li a.active {
-    color: #ffe156;
+    background-color: #007acc;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 122, 204, 0.6);
+  }
+  nav ul li a svg {
+    fill: #b3d4fc;
+    transition: fill 0.3s;
+  }
+  nav ul li a:hover svg,
+  nav ul li a.active svg {
+    fill: #fff;
   }
   main {
     flex: 1;
-    padding: 2rem 3rem;
-    background: white;
-    box-shadow: 0 0 10px #ddd;
+    padding: 2.5rem 3rem;
+    background: #fafafa;
     max-width: 900px;
     margin: 1rem auto;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 12px rgba(0,0,0,0.06);
   }
   h1, h2, h3 {
-    color: #002855;
+    color: #003366;
+    font-weight: 700;
   }
   pre {
-    background: #f4f4f4;
-    border-left: 4px solid #034078;
-    padding: 1rem;
+    background: #eaeff5;
+    border-left: 5px solid #00509e;
+    padding: 1.2rem;
     overflow-x: auto;
+    border-radius: 8px;
+    font-size: 0.95rem;
   }
   code {
     font-family: 'Source Code Pro', monospace;
-    background: #eaeaea;
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
+    background: #dde8f7;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
   }
   section {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    line-height: 1.6;
   }
   footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-    color: #666;
+    color: #777;
+    margin-top: 3rem;
   }
+  /* Scrollbar for nav */
+  nav::-webkit-scrollbar {
+    width: 8px;
+  }
+  nav::-webkit-scrollbar-track {
+    background: #034578;
+  }
+  nav::-webkit-scrollbar-thumb {
+    background-color: #0288d1;
+    border-radius: 20px;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     #container {
       flex-direction: column;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      overflow: visible;
     }
     nav {
       width: 100%;
       height: auto;
       position: relative;
+      border-radius: 10px 10px 0 0;
+      padding: 1rem 1rem;
+      box-shadow: none;
+      max-height: 200px;
+      overflow-y: auto;
     }
     main {
       max-width: 100%;
       margin: 0;
       box-shadow: none;
-      padding: 1rem;
+      border-radius: 0 0 10px 10px;
+      padding: 1.5rem 1.5rem;
     }
   }
+
 </style>
+
 </head>
 <body>
 
@@ -120,7 +187,7 @@
     <ul>
       <li><a href="#introduction" class="active">Introduction</a></li>
       <li><a href="#setup">Setup</a></li>
-      <li><a href="#assignments">Assignments</a></li>
+      <li><a href="#assignments">Problems</a></li>
       <li><a href="#solutions">Solutions</a></li>
       <li><a href="#resources">Resources</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -129,9 +196,8 @@
 
   <main>
     <section id="intro" style="margin-bottom: 3em;">
-  <h1>🚀 Shell Tutorial: Bash for Scientific Research</h1>
-  <p>
-    Welcome to this tutorial on the Bash Shell, specially designed for students and researchers in physics, astrophysics, and computational science. 
+  <h1>Shell Tutorial: Assignment</h1>
+  <p> 
     This page contains a set of practical assignments that simulate real-world tasks you might encounter in fields such as <strong>astrophysical particle physics</strong> and <strong>string theory research</strong>.
   </p>
 
@@ -140,7 +206,7 @@
     Each problem aligns with key concepts from the tutorial and is focused on scientific data processing using Unix tools.
   </p>
 
-  <h2>What You’ll Practice</h2>
+  <h2>What You'll Practice</h2>
   <ul>
     <li><strong>Problem 1:</strong> Navigating and managing astrophysical datasets using basic commands like <code>ls</code>, <code>cd</code>, <code>mkdir</code>, and <code>cp</code>.</li>
     <li><strong>Problem 2:</strong> Filtering and transforming cosmic ray data using pipes, loops, <code>grep</code>, <code>awk</code>, and <code>cut</code>.</li>
@@ -148,7 +214,7 @@
   </ul>
 
   <p>
-    💾 All code, input data, and solution scripts can be found in the GitHub repository:
+    All code, input data, and solution scripts can be found in the GitHub repository:
     <a href="https://github.com/iliomar/shell-tutorial-assignments" target="_blank">
       github.com/iliomar/shell-tutorial-assignments
     </a>.
@@ -165,7 +231,7 @@
 </section>
 
 
-    <section id="setup" style="margin-bottom: 3em;">
+ <section id="setup" style="margin-bottom: 3em;">
   <h2>🛠️ Setup Instructions</h2>
 
   <p>Before you begin solving the assignments, make sure your environment is ready. Follow these steps to set everything up:</p>
@@ -178,37 +244,51 @@ cd shell-tutorial-assignments</code></pre>
     </li>
 
     <li>
-      <strong>Make the setup script executable and run it:</strong><br>
-      This script ensures all necessary directories and sample files are in place.
+      <strong>Run the setup script <em>(optional but recommended)</em>:</strong><br>
+      This script ensures that all necessary directories and sample files are in place.
       <pre><code class="bash">chmod +x setup.sh
 ./setup.sh</code></pre>
+
+      <p><strong> Note:</strong> If everything is already present (e.g., you see the <code>data/</code>, <code>problems/</code>, and <code>solutions/</code> folders), you don't need to run <code>setup.sh</code> right away. However, it's helpful to use if:</p>
+      <ul>
+        <li>You accidentally delete or modify files and want to reset the environment.</li>
+        <li>You clone the repo onto a fresh system.</li>
+        <li>You want to understand or regenerate the structure and mock data programmatically.</li>
+      </ul>
     </li>
 
     <li>
       <strong>Explore the repository structure:</strong><br>
       Here's a quick overview:
       <pre><code class="plaintext">shell-tutorial-assignments/
-├── data/         # Sample data files (e.g., cosmic ray, log files)
-├── problems/     # Assignment problem statements
-├── solutions/    # Shell scripts with example solutions
-├── results/      # (Optional) Output directory for generated results
-├── setup.sh      # Prepares working directories and dummy data
-└── index.html    # This webpage</code></pre>
+├── data/              # Sample data files (e.g., cosmic rays)
+├── problems/          # Assignment problem statements
+├── solutions/         # Your Bash solutions
+├── results/           # Output files (if needed)
+├── simulation_logs/   # Sample log files for Problem 3
+├── setup.sh           # Environment setup script
+└── index.html         # Web front page</code></pre>
     </li>
 
     <li>
-      <strong>Start working on assignments:</strong><br>
-      Open each problem from the <code>problems/</code> folder and write your solutions as Bash scripts.
-      Save your answers in the <code>solutions/</code> folder with a filename like <code>assignment1_solution.sh</code>.
+      <strong>Start solving the problems:</strong><br>
+      Read each problem in the <code>problems/</code> folder and write your Bash solution scripts inside <code>solutions/</code>.
     </li>
   </ol>
 
   <p>
-    💡 <strong>Tip:</strong> Use a terminal with Bash support (like Linux, macOS Terminal, or Git Bash on Windows) and make sure you understand commands like <code>cd</code>, <code>ls</code>, <code>grep</code>, <code>cut</code>, and <code>awk</code>.
+     <strong>System Notes:</strong><br>
+    ✔️ <strong>AlmaLinux OS 9:</strong> This system already includes Bash and the required core utilities by default—no setup needed.<br>
+    ✔️ <strong>macOS:</strong> You can use the default Terminal with Bash. All commands used in these assignments are compatible with macOS.
   </p>
 
-  <p>You're now ready to begin!</p>
+  <p>
+     <strong>Tip:</strong> Use a terminal with Bash support (like Linux, macOS Terminal, or Git Bash on Windows). Get comfortable with commands like <code>cd</code>, <code>ls</code>, <code>grep</code>, <code>cut</code>, <code>awk</code>, <code>sort</code>, and <code>head</code>.
+  </p>
+
+  <p>You're all set</p>
 </section>
+
 
 
     <section id="assignments">
@@ -223,16 +303,16 @@ cd shell-tutorial-assignments</code></pre>
     </section>
 
    <section id="assignment1" style="margin-bottom: 4em;">
-  <h2>🔭 Assignment 1: Exploring Cosmic Ray Flux Data</h2>
+  <h2> Problem 1: Exploring Cosmic Ray Flux Data</h2>
   <p>Welcome to your first assignment! We'll apply the basic shell skills you've learned to explore a dataset inspired by astrophysical particle physics. The data contains simulated measurements of cosmic ray particle fluxes detected by an instrument in space.</p>
 
-  <h3>📘 Topics Covered</h3>
+  <h3>Topics Covered</h3>
   <ul>
     <li>Navigating Files and Directories</li>
     <li>Working with Files and Directories</li>
   </ul>
 
-  <h3>📁 Dataset</h3>
+  <h3>Dataset</h3>
   <p>The file is located at: <code>data/cosmic_flux_data.txt</code></p>
   <pre><code>Energy(GeV)	Flux(particles/m²/s/sr/GeV)	Particle
 12.5	4.2e-3	Proton
@@ -267,10 +347,10 @@ cd shell-tutorial-assignments</code></pre>
 </section>
 
 <section id="assignment2" style="margin-bottom: 4em;">
-  <h2>🔭 Assignment 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
+  <h2>Problem 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
   <p>Building on your first assignment, now you will analyze the cosmic ray flux data more deeply using pipes, filters, and loops in Bash.</p>
 
-  <h3>📘 Topics Covered</h3>
+  <h3>Topics Covered</h3>
   <ul>
     <li>Pipes and Filters (<code>|</code>, <code>grep</code>, <code>awk</code>, <code>cut</code>, <code>sort</code>, <code>uniq</code>)</li>
     <li>Loops (<code>for</code>, <code>while</code>)</li>
@@ -303,7 +383,7 @@ cd shell-tutorial-assignments</code></pre>
 
 
 <section id="assignment3" style="margin-bottom: 4em;">
-  <h2>🔭 Assignment 3: Analyze Astrophysics Simulation Logs with Shell Scripts</h2>
+  <h2>Problem 3: Analyze Astrophysics Simulation Logs with Shell Scripts</h2>
   <p>You have a folder <code>simulation_logs/</code> containing many <code>.log</code> files from astrophysics simulations. Each file may have lines with <code>ERROR</code> or <code>WARNING</code>.</p>
 
   <h3>Tasks</h3>
@@ -331,7 +411,7 @@ cd shell-tutorial-assignments</code></pre>
 
 
 <section id="solution1" style="margin-bottom: 4em;">
-  <h2>🛠 Solution to Assignment 1: Exploring Cosmic Ray Flux Data</h2>
+  <h2>Solution to Problem 1: Exploring Cosmic Ray Flux Data</h2>
   <p>Below is a step-by-step Bash script explanation that performs the tasks requested.</p>
 
   <pre><code class="bash">
@@ -393,7 +473,7 @@ echo "Assignment 1 tasks complete."
 </section>
 
 <section id="solution2" style="margin-bottom: 4em;">
-  <h2>🛠 Solution to Assignment 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
+  <h2>🛠 Solution to Problem 2: Processing Cosmic Ray Data with Pipes, Filters, and Loops</h2>
   <p>This script performs all the tasks requested using pipes, filters, loops, and basic shell scripting.</p>
 
   <pre><code class="bash">
@@ -450,7 +530,7 @@ cd ../..
 </section>
 
 <section id="solution3" style="margin-bottom: 4em;">
-  <h2>Solution for Assignment 3: Analyze Astrophysics Simulation Logs</h2>
+  <h2>Solution for Problem 3: Analyze Astrophysics Simulation Logs</h2>
 
   <p>Below is a well-commented shell script <code>analyze_logs.sh</code> that accomplishes all tasks from the assignment:</p>
 
@@ -536,7 +616,6 @@ echo "Log analysis completed."
         <li><a href="https://github.com/iliomar/shell-tutorial-assignments" target="_blank" rel="noopener">GitHub Repository</a></li>
         <li><a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank" rel="noopener">Bash Reference Manual</a></li>
         <li><a href="https://appletree.or.kr/quick_reference_cards/Unix-Linux/Linux%20Command%20Line%20Cheat%20Sheet.pdf" target="_blank" rel="noopener">Cheat Sheet</a></li>
-        <li><a href="https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh" target="_blank" rel="noopener"></a>Cheat Sheet</li>
       </ul>
     </section>
 
