@@ -179,7 +179,7 @@
 </head>
 <body>
 
-<header>Shell Tutorial Assignments</header>
+<header>Shell Tutorial Assignment</header>
 
 <div id="container">
   <nav>
@@ -215,7 +215,7 @@
 
   <p>
     All code, input data, and solution scripts can be found in the GitHub repository:
-    <a href="https://github.com/iliomar/shell-tutorial-assignments" target="_blank">
+    <a href="https://github.com/iliomar/shell-tutorial-assignment" target="_blank">
       github.com/iliomar/shell-tutorial-assignments
     </a>.
     You are encouraged to clone the repository, follow the setup instructions, and run the assignments locally to strengthen your command-line skills.
@@ -239,7 +239,7 @@
   <ol>
     <li>
       <strong>Clone the repository:</strong>
-      <pre><code class="bash">git clone https://github.com/iliomar/shell-tutorial-assignments.git
+      <pre><code class="bash">git clone https://github.com/iliomar/shell-tutorial-assignment.git
 cd shell-tutorial-assignments</code></pre>
     </li>
 
@@ -417,40 +417,40 @@ cd shell-tutorial-assignments</code></pre>
   <pre><code class="bash">
 #!/bin/bash
 
-# Step 1: Navigate to the data directory
+#Navigate to the data directory
 echo "Navigating to data/ directory..."
 cd data || { echo "data/ directory not found!"; exit 1; }
 
-# Step 2: List files to confirm dataset exists
+#List files to confirm dataset exists
 echo "Listing files in data/:"
 ls
 
-# Step 3: Inspect the file content (show first 5 lines)
+#Inspect the file content (show first 5 lines)
 echo "Displaying first 5 lines of cosmic_flux_data.txt:"
 head -n 5 cosmic_flux_data.txt
 
-# Step 4: Go back to parent directory
+#Go back to parent directory
 echo "Returning to parent directory..."
 cd ..
 
-# Step 5: Create results/ directory if it does not exist
+#Create results/ directory if it does not exist
 echo "Creating results/ directory..."
 mkdir -p results
 
-# Step 6: Copy dataset to results/
+#Copy dataset to results/
 echo "Copying dataset to results/ folder..."
 cp data/cosmic_flux_data.txt results/
 
-# Step 7: Move into results/ and rename the file
+#Move into results/ and rename the file
 cd results || { echo "results/ directory not found!"; exit 1; }
 echo "Renaming cosmic_flux_data.txt to cosmic_flux_backup.txt..."
 mv cosmic_flux_data.txt cosmic_flux_backup.txt
 
-# Step 8: Count the lines including header
+#Count the lines including header
 echo "Counting lines in cosmic_flux_backup.txt:"
 wc -l cosmic_flux_backup.txt
 
-# Step 9: Return to repo root (assuming started from repo root)
+#Return to repo root (assuming started from repo root)
 echo "Returning to repo root directory..."
 cd ../..
 
@@ -480,21 +480,21 @@ echo "Assignment 1 tasks complete."
 #!/bin/bash
 
 # Navigate to results directory
-echo "Step 1: Navigate to results/ directory..."
+echo "Navigate to results/ directory..."
 cd results || { echo "results/ directory not found!"; exit 1; }
 
-# Step 2: Find number of unique particle types
-echo "Step 2: Counting unique particle types..."
+# Find number of unique particle types
+echo "Counting unique particle types..."
 unique_particles=$(tail -n +2 cosmic_flux_backup.txt | cut -f3 | sort | uniq | wc -l)
 echo "There are $unique_particles unique particle types."
 
-# Step 3: Extract top 5 highest-energy events
-echo "Step 3: Top 5 highest-energy events:"
+# Extract top 5 highest-energy events
+echo "Top 5 highest-energy events:"
 echo "(Energy(GeV), Flux, Particle)"
 tail -n +2 cosmic_flux_backup.txt | sort -k1,1nr | head -n 5
 
-# Step 4: Calculate average flux for each particle type using a loop
-echo "Step 4: Calculating average flux per particle type..."
+# Calculate average flux for each particle type using a loop
+echo "Calculating average flux per particle type..."
 particles=$(tail -n +2 cosmic_flux_backup.txt | cut -f3 | sort | uniq)
 
 for particle in $particles; do
@@ -502,8 +502,8 @@ for particle in $particles; do
   echo "Average flux for $particle: $avg_flux"
 done
 
-# Step 5: Create file with high-energy protons (>20 GeV)
-echo "Step 5: Creating high_energy_protons.txt for protons with Energy > 20 GeV..."
+# Create file with high-energy protons (>20 GeV)
+echo "Creating high_energy_protons.txt for protons with Energy > 20 GeV..."
 # Copy header first
 head -n 1 cosmic_flux_backup.txt > high_energy_protons.txt
 # Filter and append matching lines
@@ -538,7 +538,7 @@ cd ../..
 
 echo "Starting log analysis..."
 
-# Step 1: Find all .log files
+# Find all .log files
 log_files=$(find simulation_logs/ -type f -name "*.log")
 
 if [[ -z "$log_files" ]]; then
@@ -546,14 +546,14 @@ if [[ -z "$log_files" ]]; then
   exit 1
 fi
 
-# Step 2: Count total log files found
+# Count total log files found
 num_files=$(echo "$log_files" | wc -l)
 echo "Total log files found: $num_files"
 
 error_files=0
 warning_files=0
 
-# Step 3 & 4: Loop over files to find errors and warnings
+# Loop over files to find errors and warnings
 for file in $log_files; do
   error_count=$(grep -c "ERROR" "$file")
   warning_count=$(grep -c "WARNING" "$file")
@@ -570,7 +570,7 @@ done
 echo "Number of files with ERROR: $error_files"
 echo "Number of files with WARNING: $warning_files"
 
-# Step 5: Extract all ERROR lines into all_errors.txt
+# Extract all ERROR lines into all_errors.txt
 echo "Extracting all ERROR lines into all_errors.txt..."
 > all_errors.txt  # Empty the file first
 
@@ -578,7 +578,7 @@ for file in $log_files; do
   grep "ERROR" "$file" >> all_errors.txt
 done
 
-# Step 6 (Optional): Show top 5 most common error messages
+# (Optional): Show top 5 most common error messages
 if [[ -s all_errors.txt ]]; then
   echo "Top 5 most common error messages:"
   cut -d':' -f2- all_errors.txt | sort | uniq -c | sort -nr | head -n 5
@@ -605,7 +605,7 @@ echo "Log analysis completed."
       <h2>Solutions</h2>
       <p>Example solution scripts are in the <code>solutions/</code> folder. Use them as a reference after attempting each assignment on your own.</p>
       <p>To run a solution script, use:</p>
-      <pre><code>./solutions/assignment1_solution.sh
+      <pre><code>./solutions/solution*.sh
 </code></pre>
     </section>
 
