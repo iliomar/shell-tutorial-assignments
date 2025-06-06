@@ -128,20 +128,88 @@
   </nav>
 
   <main>
-    <section id="introduction">
-      <h1>Welcome to the Shell Tutorial Assignments</h1>
-      <p>This tutorial repository is designed for students interested in learning Bash shell scripting through real-world examples inspired by astrophysical particle physics and string theory data.</p>
-      <p>You will gain practical experience in navigating the filesystem, manipulating text, scripting logic, and processing scientific datasets.</p>
-    </section>
+    <section id="intro" style="margin-bottom: 3em;">
+  <h1>🚀 Shell Tutorial: Bash for Scientific Research</h1>
+  <p>
+    Welcome to this tutorial on the Bash Shell, specially designed for students and researchers in physics, astrophysics, and computational science. 
+    This page contains a set of practical assignments that simulate real-world tasks you might encounter in fields such as <strong>astrophysical particle physics</strong> and <strong>string theory research</strong>.
+  </p>
 
-    <section id="setup">
-      <h2>Setup Instructions</h2>
-      <p>Before starting the assignments, please prepare your environment:</p>
-      <pre><code>chmod +x setup.sh
-./setup.sh
-</code></pre>
-      <p>This script will check your environment and make solution scripts executable.</p>
-    </section>
+  <p>
+    These assignments are meant to reinforce core Bash skills taught in the <a href="https://swcarpentry.github.io/shell-novice/" target="_blank">Software Carpentry Shell Novice</a> lesson.
+    Each problem aligns with key concepts from the tutorial and is focused on scientific data processing using Unix tools.
+  </p>
+
+  <h2>What You’ll Practice</h2>
+  <ul>
+    <li><strong>Problem 1:</strong> Navigating and managing astrophysical datasets using basic commands like <code>ls</code>, <code>cd</code>, <code>mkdir</code>, and <code>cp</code>.</li>
+    <li><strong>Problem 2:</strong> Filtering and transforming cosmic ray data using pipes, loops, <code>grep</code>, <code>awk</code>, and <code>cut</code>.</li>
+    <li><strong>Problem 3:</strong> Writing reusable shell scripts to analyze log files and extract important error diagnostics using <code>find</code>, <code>wc</code>, and scripting logic.</li>
+  </ul>
+
+  <p>
+    💾 All code, input data, and solution scripts can be found in the GitHub repository:
+    <a href="https://github.com/iliomar/shell-tutorial-assignments" target="_blank">
+      github.com/iliomar/shell-tutorial-assignments
+    </a>.
+    You are encouraged to clone the repository, follow the setup instructions, and run the assignments locally to strengthen your command-line skills.
+  </p>
+
+  <p>
+    If you're new to the shell or need a refresher, make sure to check the <code>setup.sh</code> file for environment setup, and review the included documentation to guide you through the workflow.
+  </p>
+
+  <p>
+    🛠️ <strong>Let's dive into each assignment and build your Bash skills with real scientific context!</strong>
+  </p>
+</section>
+
+
+    <section id="setup" style="margin-bottom: 3em;">
+  <h2>🛠️ Setup Instructions</h2>
+
+  <p>Before you begin solving the assignments, make sure your environment is ready. Follow these steps to set everything up:</p>
+
+  <ol>
+    <li>
+      <strong>Clone the repository:</strong>
+      <pre><code class="bash">git clone https://github.com/iliomar/shell-tutorial-assignments.git
+cd shell-tutorial-assignments</code></pre>
+    </li>
+
+    <li>
+      <strong>Make the setup script executable and run it:</strong><br>
+      This script ensures all necessary directories and sample files are in place.
+      <pre><code class="bash">chmod +x setup.sh
+./setup.sh</code></pre>
+    </li>
+
+    <li>
+      <strong>Explore the repository structure:</strong><br>
+      Here's a quick overview:
+      <pre><code class="plaintext">shell-tutorial-assignments/
+├── data/         # Sample data files (e.g., cosmic ray, log files)
+├── problems/     # Assignment problem statements
+├── solutions/    # Shell scripts with example solutions
+├── results/      # (Optional) Output directory for generated results
+├── setup.sh      # Prepares working directories and dummy data
+└── index.html    # This webpage</code></pre>
+    </li>
+
+    <li>
+      <strong>Start working on assignments:</strong><br>
+      Open each problem from the <code>problems/</code> folder and write your solutions as Bash scripts.
+      Save your answers in the <code>solutions/</code> folder with a filename like <code>assignment1_solution.sh</code>.
+    </li>
+  </ol>
+
+  <p>
+    💡 <strong>Tip:</strong> Use a terminal with Bash support (like Linux, macOS Terminal, or Git Bash on Windows) and make sure you understand commands like <code>cd</code>, <code>ls</code>, <code>grep</code>, <code>cut</code>, and <code>awk</code>.
+  </p>
+
+  <p>You're now ready to begin!</p>
+</section>
+
 
     <section id="assignments">
       <h2>Problems</h2>
@@ -175,7 +243,7 @@
 
   <p><strong>Each row</strong> corresponds to a cosmic ray detection event. Your job is to navigate the file system and extract meaningful scientific information using shell commands.</p>
 
-  <h3>🧠 Problem Statement</h3>
+  <h3>Problem Statement</h3>
   <ol>
     <li><strong>Navigate</strong> to the <code>data/</code> directory using <code>cd</code>.</li>
     <li>Use <code>ls</code> to verify that the file <code>cosmic_flux_data.txt</code> exists.</li>
@@ -187,14 +255,14 @@
     <li>Now return to the repo root using <code>cd ../..</code> and continue with the next problem once finished.</li>
   </ol>
 
-  <h3>📌 Notes</h3>
+  <h3>Notes</h3>
   <ul>
     <li>Use <code>pwd</code> to check where you are at any moment.</li>
     <li>Use <code>mkdir</code>, <code>cp</code>, and <code>mv</code> with care — these commands change your file system!</li>
     <li>Remember: you can always use <code>man &lt;command&gt;</code> to learn more.</li>
   </ul>
 
-  <h3>✅ Deliverable</h3>
+  <h3>Deliverable</h3>
   <p>Create a Bash script called <code>assignment1_solution.sh</code> that performs all the steps above, using relative paths.</p>
 </section>
 
@@ -209,10 +277,10 @@
     <li>Basic File Navigation and Manipulation</li>
   </ul>
 
-  <h3>📁 Dataset</h3>
+  <h3>Dataset</h3>
   <p>Recall the file <code>results/cosmic_flux_backup.txt</code> from Assignment 1. This file contains the cosmic ray flux measurements.</p>
 
-  <h3>🧠 Problem Statement</h3>
+  <h3>Problem Statement</h3>
   <ol>
     <li>Navigate to the <code>results/</code> directory.</li>
     <li>Using pipes and filters, find out how many unique particle types are present in the dataset.</li>
@@ -221,7 +289,7 @@
     <li>Create a new file called <code>high_energy_protons.txt</code> that contains only rows for protons with energy greater than 20 GeV.</li>
   </ol>
 
-  <h3>📌 Notes</h3>
+  <h3>Notes</h3>
   <ul>
     <li>Remember the dataset has a header row — skip it when processing numeric data.</li>
     <li>Use commands like <code>grep</code>, <code>awk</code>, <code>sort</code>, <code>uniq</code>, <code>cut</code>, and <code>head</code>.</li>
@@ -229,7 +297,7 @@
     <li>Print meaningful messages for clarity when running your script.</li>
   </ul>
 
-  <h3>✅ Deliverable</h3>
+  <h3>Deliverable</h3>
   <p>Create a Bash script called <code>assignment2_solution.sh</code> that performs all the steps and saves the output files inside the <code>results/</code> directory.</p>
 </section>
 
@@ -238,7 +306,7 @@
   <h2>🔭 Assignment 3: Analyze Astrophysics Simulation Logs with Shell Scripts</h2>
   <p>You have a folder <code>simulation_logs/</code> containing many <code>.log</code> files from astrophysics simulations. Each file may have lines with <code>ERROR</code> or <code>WARNING</code>.</p>
 
-  <h3>🧩 Tasks</h3>
+  <h3>Tasks</h3>
   <ol>
     <li>Use <code>find</code> to locate all <code>.log</code> files inside <code>simulation_logs/</code>.</li>
     <li>Count and print the total number of log files found.</li>
@@ -248,14 +316,14 @@
     <li><em>(Optional)</em> Print the top 5 most common error messages from <code>all_errors.txt</code>.</li>
   </ol>
 
-  <h3>📌 Notes</h3>
+  <h3>Notes</h3>
   <ul>
     <li>Write a shell script <code>analyze_logs.sh</code> to do the above.</li>
     <li>Include clear messages describing each step.</li>
     <li>Use loops, <code>grep</code>, <code>find</code>, <code>wc</code>, <code>sort</code>, and <code>uniq</code>.</li>
   </ul>
 
-  <h3>✅ Deliverable</h3>
+  <h3>Deliverable</h3>
   <p>Submit the executable shell script <code>analyze_logs.sh</code> that performs all tasks.</p>
 </section>
 
@@ -382,7 +450,7 @@ cd ../..
 </section>
 
 <section id="solution3" style="margin-bottom: 4em;">
-  <h2>✅ Solution for Assignment 3: Analyze Astrophysics Simulation Logs</h2>
+  <h2>Solution for Assignment 3: Analyze Astrophysics Simulation Logs</h2>
 
   <p>Below is a well-commented shell script <code>analyze_logs.sh</code> that accomplishes all tasks from the assignment:</p>
 
